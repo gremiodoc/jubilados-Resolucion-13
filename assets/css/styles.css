@@ -397,6 +397,7 @@ img {
   line-height: 1;
   white-space: nowrap;
   cursor: pointer;
+  text-decoration: none;
   transition:
     transform 0.16s ease,
     box-shadow 0.16s ease,

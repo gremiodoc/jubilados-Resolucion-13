@@ -14,6 +14,7 @@ Incluye:
   - **A — Administrativo:** verde oscuro.
   - **O — Obrero:** naranja.
 - Resultado negativo con una **X**, el mensaje correspondiente y un cuadro para realizar otra consulta.
+- En resultados positivos, un enlace opcional abre la consulta de nombre de Sistema PNP en otra pestaña. La cédula no se comparte automáticamente.
 - Diseño adaptable a teléfonos, tabletas y computadoras.
 - Sin servidor, sin base de datos externa, sin dependencias, sin publicidad y sin conexiones a terceros.
 

@@ -207,6 +207,10 @@
           "</div>" +
         "</dl>" +
         '<div class="result__actions">' +
+          '<a class="btn btn--light" href="https://www.sistemaspnp.com/cedula/" target="_blank" rel="noopener noreferrer" ' +
+            'title="Abre el sitio externo Sistema PNP en una pestaña nueva">' +
+            ICONS.search + "<span>Consultar nombre en sitio externo</span>" +
+          "</a>" +
           '<button class="btn btn--light" id="btn-otra" type="button">' +
             ICONS.search + "<span>Realizar otra consulta</span>" +
           "</button>" +
