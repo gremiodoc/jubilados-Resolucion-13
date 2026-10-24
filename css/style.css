@@ -1,0 +1,29 @@
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Roboto,Arial,sans-serif;background:#eef1f6;color:#1b2a41;min-height:100vh;display:flex;flex-direction:column}
+.cintillo-top{background:#1a1a1a;color:#fff;text-align:center;font-size:.85rem;padding:6px 10px;letter-spacing:.3px;border-bottom:4px solid;border-image:linear-gradient(90deg,#ffcc00 33%,#00247d 33% 66%,#cf142b 66%) 1}
+.logos{background:#e0e0e0;display:flex;justify-content:space-between;align-items:center;padding:8px clamp(10px,4vw,48px)}
+.logo-mppe{height:clamp(60px,12vw,100px);width:auto;display:block}
+.logo-gd{height:clamp(60px,12vw,100px);width:auto;display:block;border-radius:50%}
+.cintillo-azul{background:#0b3d91;color:#fff;text-align:center;padding:16px 12px}
+.cintillo-azul h1{margin:0;font-size:clamp(1.15rem,3.5vw,1.8rem);font-weight:700}
+main{flex:1;width:100%;max-width:680px;margin:0 auto;padding:24px 16px}
+.card{background:#fff;border-radius:12px;box-shadow:0 4px 18px rgba(11,61,145,.12);padding:24px;margin-bottom:20px;border-top:4px solid #0b3d91}
+.card h2{margin:0 0 16px;font-size:1.25rem;color:#0b3d91;text-align:center}
+form{display:flex;gap:10px}
+input{flex:1;min-width:0;font-size:1.2rem;padding:12px 14px;border:2px solid #b8c4d9;border-radius:8px;outline:none;text-align:center;letter-spacing:1px}
+input:focus{border-color:#0b3d91;box-shadow:0 0 0 3px rgba(11,61,145,.2)}
+button{background:#0b3d91;color:#fff;border:0;border-radius:8px;font-size:1.05rem;font-weight:600;padding:12px 24px;cursor:pointer}
+button:hover{background:#082c6a}
+.ayuda{margin:12px 0 0;text-align:center;font-size:.9rem;color:#5a6a85}
+.error{margin-top:12px;color:#b00020;text-align:center;font-weight:600}
+.resultado{text-align:center;border-radius:12px;padding:28px 20px;margin-bottom:20px;color:#fff;animation:in .3s ease}
+.resultado h3{margin:10px 0;font-size:clamp(1.2rem,4vw,1.7rem)}
+.resultado p{margin:6px 0;font-size:1.05rem}
+.resultado .icono{width:84px;height:84px;line-height:84px;margin:0 auto;border-radius:50%;background:#fff;font-size:3.2rem;font-weight:700}
+.ok{background:#1b7f3b}.ok .icono{color:#1b7f3b}
+.no{background:#b3261e}.no .icono{color:#b3261e}
+.tipo{font-size:1.3rem!important}
+.leyenda{opacity:.9;font-size:.9rem!important}
+@keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+footer{background:#0b3d91;color:#cfd9ee;text-align:center;font-size:.8rem;padding:14px}
+@media(max-width:480px){form{flex-direction:column}button{width:100%}}
