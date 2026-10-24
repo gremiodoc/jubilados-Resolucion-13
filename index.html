@@ -1,61 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Listado de Jubilados - Resolución 13 - MPPE</title>
-<meta name="description" content="Consulta del Listado de Jubilados Resolución 13 Agosto 2026 - Ministerio del Poder Popular para la Educación, República Bolivariana de Venezuela.">
-<link rel="icon" href="img/logo-gd.jpg">
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de jubilados Resolución 13 Agosto 2026 | MPPE</title>
+  <meta name="description" content="Consulta oficial de jubilados del Ministerio del Poder Popular para la Educación. Resolución 13 Agosto 2026.">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/jpeg" href="img/logo_gd.jpg">
 </head>
-<body>
-<div class="cintillo-top">Ministerio del Poder Popular para la Educación. República Bolivariana de Venezuela</div>
+<body id="page-body">
 
-<header class="logos">
-  <img class="logo-mppe" src="img/logo-mppe.jpg" alt="Ministerio del Poder Popular para la Educación - República Bolivariana de Venezuela">
-  <img class="logo-gd" src="img/logo-gd.jpg" alt="Gremio Docente Venezuela (GD)">
-</header>
+  <!-- Cinta tricolor venezolana -->
+  <div class="cintillo-tricolor">
+    <div class="tricolor-amarillo"></div>
+    <div class="tricolor-azul"></div>
+    <div class="tricolor-rojo"></div>
+  </div>
 
-<div class="cintillo-azul"><h1>Listado de jubilados Resolución 13 Agosto 2026</h1></div>
+  <!-- CINTILLO SUPERIOR: MPPE izquierda, GD derecha, Texto al centro -->
+  <header class="cintillo-superior">
+    <div class="cintillo-superior-inner">
+      <!-- Esquina Superior Izquierda: Logo MPPE -->
+      <div class="logo-container-left">
+        <img src="img/logo_mppe.jpg" alt="Logo Ministerio del Poder Popular para la Educación" class="logo-mppe">
+      </div>
 
-<main>
-  <section class="card" id="consulta">
-    <h2>Escribe tu Cédula de Identidad</h2>
-    <form id="form" autocomplete="off" novalidate>
-      <input id="cedula" type="text" inputmode="numeric" maxlength="14" placeholder="Ej: 12.345.678" aria-label="Cédula de Identidad" aria-describedby="ayuda" autofocus>
-      <button type="submit">Consultar</button>
-    </form>
-    <p id="ayuda" class="ayuda">Puedes escribir con puntos (12.345.678) o sin ellos (12345678)</p>
-    <div id="error" class="error" role="alert" hidden></div>
-  </section>
+      <!-- Texto del Cintillo Superior -->
+      <div class="header-text-container">
+        <h1 class="header-institucion-title">
+          Ministerio del Poder Popular para la Educación.<br>
+          <span class="header-republica-sub">República Bolivariana de Venezuela</span>
+        </h1>
+      </div>
 
-  <section id="resultado" aria-live="polite" hidden>
-    <div id="ok" class="resultado ok" hidden>
-      <div class="icono">✔</div>
-      <h3>FELICIDADES USTED ESTÁ JUBILADO</h3>
-      <p class="tipo">Tipo de Personal: <strong id="tipo"></strong></p>
-      <p class="leyenda">(D: Docente, O: Obrero, A: Administrativo)</p>
+      <!-- Esquina Superior Derecha: Logo GD -->
+      <div class="logo-container-right">
+        <img src="img/logo_gd.jpg" alt="Logo GD Gremio Docente" class="logo-gd" title="Gremio Docente Venezuela">
+      </div>
     </div>
-    <div id="no" class="resultado no" hidden>
-      <div class="icono">✘</div>
-      <h3>Usted no aparece en la lista</h3>
-      <p>La cédula <strong id="ced-no"></strong> no se encuentra registrada en El Listado Jubilados.</p>
-    </div>
+  </header>
 
-    <div class="card nueva">
-      <h2>Realizar otra consulta</h2>
-      <form id="form2" autocomplete="off" novalidate>
-        <input id="cedula2" type="text" inputmode="numeric" maxlength="14" placeholder="Ej: 12.345.678" aria-label="Otra Cédula de Identidad">
-        <button type="submit">Consultar</button>
+  <!-- CINTILLO AZUL CON LETRAS BLANCAS -->
+  <div class="cintillo-azul">
+    <div class="cintillo-azul-content">
+      <h2>Listado de jubilados Resolución 13 Agosto 2026</h2>
+      <div class="cintillo-azul-sub">Otorgamiento del Beneficio de Jubilación • Gaceta Oficial N° 472.961 – 472.964</div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main class="main-content">
+
+    <!-- Canvas para animación de Confeti en caso afirmativo -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- ====================================================================
+         CUADRO DE CONSULTA PRINCIPAL
+         ==================================================================== -->
+    <div id="search-container" class="card-box search-card-container">
+      <h2 class="section-title">
+        <span>🔍</span> Escribe tu Cédula de Identidad
+      </h2>
+      <p class="instruction-text">
+        Ingresa tu número de identificación para consultar tu estatus en la resolución oficial.<br>
+        <span class="instruction-badge">Puedes escribir con puntos (12.345.678) o sin ellos (12345678)</span>
+      </p>
+
+      <form id="form-consulta-principal" class="search-form" autocomplete="off">
+        <div class="input-button-group">
+          <div class="input-cedula-wrapper">
+            <span class="input-icon">🪪</span>
+            <input 
+              type="text" 
+              id="input-cedula-principal" 
+              class="input-cedula" 
+              placeholder="Ej: 12.345.678 o 12345678" 
+              inputmode="numeric"
+              required 
+              autofocus
+            >
+          </div>
+          <button type="submit" id="btn-consultar-principal" class="btn-consultar">
+            <span>Consultar</span> ➔
+          </button>
+        </div>
       </form>
-      <p class="ayuda">Puedes escribir con puntos (12.345.678) o sin ellos (12345678)</p>
+
+      <!-- Chips de ejemplos rápidos -->
+      <div class="format-help-tags">
+        <span style="font-size: 0.82rem; color: #64748b; font-weight: 600;">Ejemplos rápidos para probar:</span>
+        <button type="button" class="format-chip" data-ejemplo="12.732.436">Docente: 12.732.436</button>
+        <button type="button" class="format-chip" data-ejemplo="3671247">Administrativo: 3671247</button>
+        <button type="button" class="format-chip" data-ejemplo="3.095.462">Obrero: 3.095.462</button>
+        <button type="button" class="format-chip" data-ejemplo="99999999">No Registrado</button>
+      </div>
     </div>
-  </section>
-</main>
 
-<footer>Ministerio del Poder Popular para la Educación · República Bolivariana de Venezuela<br>Resolución N° 013 · Agosto 2026</footer>
+    <!-- ====================================================================
+         RESPUESTA A LA CONSULTA: CASO AFIRMATIVO
+         (Pantalla Azul para Docentes, Verde Oscuro para Administrativos, Naranja para Obreros)
+         ==================================================================== -->
+    <div id="resultado-afirmativo" class="card-box resultado-container">
+      <div class="jubilado-header-banner">
+        <div class="jubilado-icon-glow">🎉</div>
+        <h2 class="titulo-felicidades">FELICIDADES USTED ESTÁ JUBILADO</h2>
+      </div>
 
-<script src="data/jubilados.js"></script>
-<script src="js/app.js"></script>
+      <!-- TIPO de Personal (D: Docente, O: Obrero. A: Administrativo) -->
+      <div class="tipo-personal-badge-wrapper">
+        <div id="badge-tipo-personal" class="tipo-personal-badge badge-docente">
+          <!-- Dinámico vía JS -->
+        </div>
+      </div>
+
+      <!-- Detalles del Jubilado -->
+      <div class="detalles-jubilado-card">
+        <div class="detalle-row">
+          <span class="detalle-label">Cédula de Identidad:</span>
+          <span class="detalle-valor" id="valor-cedula-afirmativo">V-00.000.000</span>
+        </div>
+        <div class="detalle-row">
+          <span class="detalle-label">Número en Listado General:</span>
+          <span class="detalle-valor" id="valor-numero-general">N° 000</span>
+        </div>
+        <div class="detalle-row">
+          <span class="detalle-label">Categoría / Renglón:</span>
+          <span class="detalle-valor" id="valor-categoria-afirmativo">Personal Docente - Jubilado(a)</span>
+        </div>
+        <div class="detalle-row">
+          <span class="detalle-label">Acto Administrativo:</span>
+          <span class="detalle-valor">Resolución N° 013 (Agosto 2026)</span>
+        </div>
+        <div class="detalle-row">
+          <span class="detalle-label">Estatus:</span>
+          <span class="detalle-valor" style="color: #22c55e;">✔ BENEFICIO OTORGADO</span>
+        </div>
+      </div>
+
+      <!-- Botones de Acción -->
+      <div class="acciones-jubilado">
+        <button type="button" id="btn-otra-consulta" class="btn-accion-otra">
+          <span>🔍</span> Hacer otra consulta
+        </button>
+        <button type="button" id="btn-imprimir" class="btn-accion-imprimir">
+          <span>🖨️</span> Imprimir Comprobante
+        </button>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         RESPUESTA A LA CONSULTA: CASO NEGATIVO
+         (Equis X, mensaje de no registrado y debajo otro cuadro para consultar)
+         ==================================================================== -->
+    <div id="resultado-negativo" class="resultado-negativo-box">
+      <!-- Tarjeta con la Equis y el mensaje requerido -->
+      <div class="negativo-alert-card">
+        <div class="equis-circle">✕</div>
+        <h3 class="negativo-titulo">Usted no aparece en la lista</h3>
+        <p class="negativo-mensaje">
+          La cédula <span id="cedula-no-encontrada" class="negativo-cedula-tag">V-00.000.000</span> no se encuentra registrada en El Listado Jubilados.
+        </p>
+        <p class="negativo-subtexto">
+          Verifique que el número de cédula esté escrito correctamente o consulte con su zona educativa / departamento de gestión humana.
+        </p>
+      </div>
+
+      <!-- Debajo otro cuadro para hacer otra consulta -->
+      <div class="card-box" style="margin-top: 14px;">
+        <h2 class="section-title">
+          <span>🔄</span> Realizar otra consulta
+        </h2>
+        <p class="instruction-text">
+          Escribe tu Cédula de Identidad<br>
+          <span class="instruction-badge">Puedes escribir con puntos (12.345.678) o sin ellos (12345678)</span>
+        </p>
+
+        <form id="form-consulta-secundario" class="search-form" autocomplete="off">
+          <div class="input-button-group">
+            <div class="input-cedula-wrapper">
+              <span class="input-icon">🪪</span>
+              <input 
+                type="text" 
+                id="input-cedula-secundario" 
+                class="input-cedula" 
+                placeholder="Ej: 12.345.678 o 12345678" 
+                inputmode="numeric"
+                required
+              >
+            </div>
+            <button type="submit" id="btn-consultar-secundario" class="btn-consultar">
+              <span>Consultar</span> ➔
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Barra de Estadísticas Generales del Listado Oficial -->
+    <div class="stats-bar">
+      <div class="stat-pill">
+        <div class="stat-num">1.700</div>
+        <div class="stat-label">Total Beneficiarios</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num">1.592</div>
+        <div class="stat-label">Docentes (D)</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num">27</div>
+        <div class="stat-label">Administrativos (A)</div>
+      </div>
+      <div class="stat-pill">
+        <div class="stat-num">81</div>
+        <div class="stat-label">Obreros (O)</div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- PIE DE PÁGINA INSTITUCIONAL -->
+  <footer class="footer-institucional">
+    <div class="footer-inner">
+      <p><strong>Ministerio del Poder Popular para la Educación</strong> &bull; República Bolivariana de Venezuela</p>
+      <p>Resolución N° 013 de fecha Agosto 2026 &bull; Gaceta Oficial N° 472.961 – 472.964</p>
+      <p style="margin-top: 6px; font-size: 0.78rem; opacity: 0.75;">Desarrollado para consulta pública en línea &bull; Compatible 100% con GitHub Pages</p>
+    </div>
+  </footer>
+
+  <!-- CARGA DE SCRIPTS: data.js (Base de datos 1700 registros) y app.js (Lógica) -->
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>

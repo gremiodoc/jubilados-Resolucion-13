@@ -1,0 +1,912 @@
+/* ==========================================================================
+   ESTILOS GENERALES Y TEMA INSTITUCIONAL
+   Listado de Jubilados - Resolución 13 Agosto 2026
+   Ministerio del Poder Popular para la Educación
+   ========================================================================== */
+
+:root {
+  --color-mppe-blue: #0b4f9c;
+  --color-mppe-darkblue: #083468;
+  --color-cintillo-azul: #0d47a1;
+  --color-gold: #f59e0b;
+  --color-gold-hover: #d97706;
+  --color-bg-default: #f3f4f6;
+  --color-card-bg: #ffffff;
+  --color-text-main: #1f2937;
+  --color-text-muted: #4b5563;
+  --color-border: #e5e7eb;
+  
+  /* Temas de pantalla según tipo de personal */
+  --theme-docente-bg: linear-gradient(135deg, #0d3b66 0%, #092c4e 50%, #041a30 100%);
+  --theme-docente-accent: #2563eb;
+  --theme-docente-glow: rgba(37, 99, 235, 0.4);
+
+  --theme-admin-bg: linear-gradient(135deg, #0d3d24 0%, #082918 50%, #03170d 100%);
+  --theme-admin-accent: #059669;
+  --theme-admin-glow: rgba(5, 150, 105, 0.4);
+
+  --theme-obrero-bg: linear-gradient(135deg, #c2410c 0%, #9a3412 50%, #6c230b 100%);
+  --theme-obrero-accent: #ea580c;
+  --theme-obrero-glow: rgba(234, 88, 12, 0.4);
+
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-bg-default);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.5s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   CAMBIO DE PANTALLA COMPLETA SEGÚN TIPO DE PERSONAL
+   - Docentes: Pantalla Azul
+   - Administrativos: Pantalla Verde Oscuro
+   - Obreros: Pantalla Naranja
+   ========================================================================== */
+
+body.pantalla-azul {
+  background: var(--theme-docente-bg) !important;
+  color: #ffffff;
+}
+
+body.pantalla-verde-oscuro {
+  background: var(--theme-admin-bg) !important;
+  color: #ffffff;
+}
+
+body.pantalla-naranja {
+  background: var(--theme-obrero-bg) !important;
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   CINTILLO SUPERIOR INSTITUCIONAL
+   ========================================================================== */
+
+.cintillo-tricolor {
+  height: 6px;
+  width: 100%;
+  display: flex;
+}
+.tricolor-amarillo { flex: 2; background-color: #facc15; }
+.tricolor-azul { flex: 1; background-color: #1d4ed8; }
+.tricolor-rojo { flex: 1; background-color: #dc2626; }
+
+.cintillo-superior {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 12px 20px;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 10;
+}
+
+.cintillo-superior-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo-container-left {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo-mppe {
+  height: 62px;
+  max-width: 200px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.logo-mppe:hover {
+  transform: scale(1.02);
+}
+
+.header-text-container {
+  flex: 1;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.header-institucion-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e293b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  line-height: 1.35;
+}
+
+.header-republica-sub {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-top: 3px;
+  letter-spacing: 0.3px;
+}
+
+.logo-container-right {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.logo-gd {
+  height: 64px;
+  width: 64px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #22c55e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease;
+}
+
+.logo-gd:hover {
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   CINTILLO AZUL DE LA RESOLUCIÓN
+   ========================================================================== */
+
+.cintillo-azul {
+  background: linear-gradient(90deg, #093c7a 0%, #0d47a1 50%, #093c7a 100%);
+  color: #ffffff;
+  padding: 14px 20px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.cintillo-azul-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.cintillo-azul h2 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.cintillo-azul-sub {
+  font-size: 0.84rem;
+  color: #dbeafe;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+/* ==========================================================================
+   CONTENEDOR PRINCIPAL
+   ========================================================================== */
+
+.main-content {
+  flex: 1;
+  max-width: 860px;
+  width: 100%;
+  margin: 28px auto 40px;
+  padding: 0 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Tarjeta Base */
+.card-box {
+  width: 100%;
+  background: var(--color-card-bg);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+  padding: 32px 30px;
+  border: 1px solid var(--color-border);
+  transition: all 0.3s ease;
+}
+
+/* Estilos de tarjeta cuando la pantalla cambia de color */
+body.pantalla-azul .card-box {
+  background: rgba(13, 40, 75, 0.92);
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+body.pantalla-verde-oscuro .card-box {
+  background: rgba(10, 45, 26, 0.92);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+body.pantalla-naranja .card-box {
+  background: rgba(140, 48, 14, 0.94);
+  border: 1px solid rgba(251, 146, 60, 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  color: #ffffff;
+  backdrop-filter: blur(8px);
+}
+
+/* ==========================================================================
+   CUADRO DE CONSULTA (Escribe tu Cédula de Identidad)
+   ========================================================================== */
+
+.section-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #0d47a1;
+  text-align: center;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+body.pantalla-azul .section-title,
+body.pantalla-verde-oscuro .section-title,
+body.pantalla-naranja .section-title {
+  color: #ffffff;
+}
+
+.instruction-text {
+  text-align: center;
+  font-size: 0.94rem;
+  color: #4b5563;
+  margin-bottom: 22px;
+  font-weight: 500;
+}
+
+body.pantalla-azul .instruction-text,
+body.pantalla-verde-oscuro .instruction-text,
+body.pantalla-naranja .instruction-text {
+  color: #e2e8f0;
+}
+
+.instruction-badge {
+  display: inline-block;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-top: 4px;
+}
+
+body.pantalla-azul .instruction-badge,
+body.pantalla-verde-oscuro .instruction-badge,
+body.pantalla-naranja .instruction-badge {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}
+
+/* Grupo de Formulario con Input y Botón al lado derecho */
+.search-form {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.input-button-group {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.input-cedula-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.input-cedula {
+  width: 100%;
+  height: 54px;
+  padding: 10px 16px 10px 48px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1e293b;
+  background-color: #f8fafc;
+  border: 2px solid #cbd5e1;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  letter-spacing: 0.5px;
+}
+
+.input-cedula:focus {
+  outline: none;
+  border-color: #0d47a1;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(13, 71, 161, 0.15);
+}
+
+.input-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #64748b;
+  pointer-events: none;
+}
+
+.btn-consultar {
+  flex-shrink: 0;
+  height: 54px;
+  padding: 0 32px;
+  background: linear-gradient(135deg, #0d47a1 0%, #1e40af 100%);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(13, 71, 161, 0.35);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-consultar:hover {
+  background: linear-gradient(135deg, #093c7a 0%, #1e3a8a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(13, 71, 161, 0.45);
+}
+
+.btn-consultar:active {
+  transform: translateY(1px);
+}
+
+/* Opciones de formato de ayuda */
+.format-help-tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.format-chip {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 5px 12px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.format-chip:hover {
+  background: #e2e8f0;
+  color: #0f172a;
+}
+
+body.pantalla-azul .format-chip,
+body.pantalla-verde-oscuro .format-chip,
+body.pantalla-naranja .format-chip {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+/* ==========================================================================
+   RESPUESTA A LA CONSULTA: CASO AFIRMATIVO
+   ========================================================================== */
+
+.resultado-container {
+  display: none;
+  width: 100%;
+  animation: fadeInScale 0.4s ease-out;
+}
+
+.resultado-container.visible {
+  display: block;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.jubilado-header-banner {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.jubilado-icon-glow {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.6rem;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+.titulo-felicidades {
+  font-size: 1.85rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* Distintivo de TIPO de Personal */
+.tipo-personal-badge-wrapper {
+  margin: 16px 0 22px;
+  text-align: center;
+}
+
+.tipo-personal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.35rem;
+  font-weight: 800;
+  padding: 10px 24px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+}
+
+/* Badge colores según el tipo */
+.badge-docente {
+  background: #ffffff;
+  color: #0b4f9c;
+  border: 3px solid #60a5fa;
+}
+
+.badge-administrativo {
+  background: #ffffff;
+  color: #065f46;
+  border: 3px solid #34d399;
+}
+
+.badge-obrero {
+  background: #ffffff;
+  color: #9a3412;
+  border: 3px solid #fdba74;
+}
+
+/* Tabla de Detalles del Jubilado */
+.detalles-jubilado-card {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.detalle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 1.02rem;
+}
+
+.detalle-row:last-child {
+  border-bottom: none;
+}
+
+.detalle-label {
+  font-weight: 600;
+  opacity: 0.9;
+}
+
+.detalle-valor {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  text-align: right;
+}
+
+/* Botones de acción en Afirmativo */
+.acciones-jubilado {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-accion-otra {
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-accion-otra:hover {
+  background: #ffffff;
+  color: #1e293b;
+  transform: translateY(-2px);
+}
+
+.btn-accion-imprimir {
+  padding: 12px 28px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  background: #facc15;
+  color: #78350f;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(250, 204, 21, 0.4);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-accion-imprimir:hover {
+  background: #eab308;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   RESPUESTA A LA CONSULTA: CASO NEGATIVO
+   - Equis (X)
+   - "Usted no aparece en la lista La cédula (escribes el numero de cédula)
+      no se encuentra registrada en El Listado Jubilados."
+   - Y debajo otro cuadro para hacer otra consulta.
+   ========================================================================== */
+
+.resultado-negativo-box {
+  display: none;
+  width: 100%;
+  animation: fadeInScale 0.4s ease-out;
+}
+
+.resultado-negativo-box.visible {
+  display: block;
+}
+
+.negativo-alert-card {
+  background: #fff;
+  border: 2px solid #fecaca;
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+  padding: 30px;
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+.equis-circle {
+  width: 82px;
+  height: 82px;
+  background: #fee2e2;
+  color: #dc2626;
+  border: 3px solid #f87171;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin: 0 auto 16px;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.2);
+  animation: shakeX 0.5s ease-in-out;
+}
+
+@keyframes shakeX {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.negativo-titulo {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: #991b1b;
+  margin-bottom: 12px;
+}
+
+.negativo-mensaje {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.negativo-cedula-tag {
+  color: #dc2626;
+  font-weight: 800;
+  background: #fee2e2;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-size: 1.18rem;
+  display: inline-block;
+  margin: 4px 0;
+}
+
+.negativo-subtexto {
+  font-size: 0.92rem;
+  color: #6b7280;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   RESUMEN ESTADÍSTICO INFORMATIVO
+   ========================================================================== */
+
+.stats-bar {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat-pill {
+  background: #ffffff;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s;
+}
+
+.stat-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+body.pantalla-azul .stat-pill,
+body.pantalla-verde-oscuro .stat-pill,
+body.pantalla-naranja .stat-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+}
+
+.stat-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #0b4f9c;
+}
+
+body.pantalla-azul .stat-num,
+body.pantalla-verde-oscuro .stat-num,
+body.pantalla-naranja .stat-num {
+  color: #ffffff;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+body.pantalla-azul .stat-label,
+body.pantalla-verde-oscuro .stat-label,
+body.pantalla-naranja .stat-label {
+  color: #cbd5e1;
+}
+
+/* ==========================================================================
+   PIE DE PÁGINA INSTITUCIONAL
+   ========================================================================== */
+
+.footer-institucional {
+  margin-top: auto;
+  background-color: #1e293b;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  text-align: center;
+  padding: 18px 20px;
+  border-top: 1px solid #334155;
+}
+
+.footer-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.footer-inner strong {
+  color: #f1f5f9;
+}
+
+/* Canvas de Confeti para Celebración */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ==========================================================================
+   ADAPTABILIDAD RESPONSIVA (Móviles y Tablets)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .cintillo-superior-inner {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .header-text-container {
+    order: 3;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .header-institucion-title {
+    font-size: 0.98rem;
+  }
+
+  .logo-mppe {
+    height: 48px;
+  }
+
+  .logo-gd {
+    height: 50px;
+    width: 50px;
+  }
+
+  .cintillo-azul h2 {
+    font-size: 1.1rem;
+  }
+
+  .card-box {
+    padding: 22px 18px;
+  }
+
+  .input-button-group {
+    flex-direction: column;
+  }
+
+  .btn-consultar {
+    width: 100%;
+    height: 50px;
+  }
+
+  .input-cedula {
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .titulo-felicidades {
+    font-size: 1.45rem;
+  }
+
+  .tipo-personal-badge {
+    font-size: 1.1rem;
+    padding: 8px 18px;
+  }
+
+  .detalle-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .detalle-valor {
+    text-align: left;
+    font-size: 1.05rem;
+  }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==========================================================================
+   ESTILOS DE IMPRESIÓN (Para descargar o imprimir comprobante)
+   ========================================================================== */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  .cintillo-superior,
+  .cintillo-azul,
+  .search-card-container,
+  .resultado-negativo-box,
+  .acciones-jubilado,
+  .stats-bar,
+  .footer-institucional,
+  #confetti-canvas {
+    display: none !important;
+  }
+
+  .main-content {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .card-box {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    box-shadow: none !important;
+    padding: 20px !important;
+  }
+
+  .resultado-container {
+    display: block !important;
+  }
+
+  .titulo-felicidades {
+    color: #000000 !important;
+  }
+
+  .tipo-personal-badge {
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+    background: #f0f0f0 !important;
+  }
+
+  .detalles-jubilado-card {
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #999999 !important;
+  }
+
+  .detalle-row {
+    border-bottom: 1px solid #cccccc !important;
+  }
+}
